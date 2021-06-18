@@ -12,9 +12,28 @@
 */
 
 $router->get(
-    '/',
+    '/', // url
     [
-        'uses' => 'MainController@home',
-        'as'   => 'main-home'
+        'uses' => 'MainController@home', // nomDuController@NomDeLaMethode
+        'as'   => 'main-home' // nom de la route
     ]
 );
+
+//Endpoint /categories : nous donne toute les categories
+$router->get(
+    '/categories',
+    [
+        'uses' => 'CategoryController@list',
+        'as'   => 'category-list'
+    ]
+);
+
+//Endpoint /categories/unId : nous donne les infos de la categories numéro "unId"
+$router->get(
+    '/categories/{id}',
+    [
+        'uses' => 'CategoryController@item',
+        'as'   => 'category-item'
+    ]
+);
+

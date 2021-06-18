@@ -21,9 +21,13 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->withFacades();
+$app->withFacades(); //
 
-$app->withEloquent();
+$app->withEloquent(); // Permet d'avoir acces a une ORM
+// Object Relational Mapping
+// On va avoir des classes avec des methodes qui vont nous permettre d'interagir avec la BDD.
+// On aura meme plus(presque plus) besoin d'ecrire nos requetes
+
 
 /*
 |--------------------------------------------------------------------------
