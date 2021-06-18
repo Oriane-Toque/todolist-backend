@@ -1,0 +1,5 @@
+TASK: title, completion, category_id, status, created_at, updated_at
+::
+belongs to, 0N CATEGORY, 11 TASK
+::
+CATEGORY: name, status, created_at, updated_at
