@@ -42,6 +42,8 @@ class TaskController extends Controller
 
         return response()->json(['error' => 'Unauthorized'], 500);
       }
+    } else {
+      return response()->json(['error 404' => 'Not Found'], 404);
     }
   }
 
@@ -76,9 +78,11 @@ class TaskController extends Controller
         $updateTask->status = $status;
 
         return response()->json($updateTask, 201);
+      } else {
+        return response()->json(['error' => 'Unauthorized'], 500);
       }
     } else {
-        return response()->json(['error' => 'Unauthorized'], 500);
+      return response()->json(['error 404' => 'Not Found'], 404);
     }
   }
 }
