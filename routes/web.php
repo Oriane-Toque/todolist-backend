@@ -12,36 +12,45 @@
 */
 
 $router->get(
-    '/', // url
-    [
-        'uses' => 'MainController@home', // nomDuController@NomDeLaMethode
-        'as'   => 'main-home' // nom de la route
-    ]
+  '/', // url
+  [
+    'uses' => 'MainController@home', // nomDuController@NomDeLaMethode
+    'as'   => 'main-home' // nom de la route
+  ]
 );
 
 //Endpoint /categories : nous donne toute les categories
 $router->get(
-    '/categories',
-    [
-        'uses' => 'CategoryController@list',
-        'as'   => 'category-list'
-    ]
+  '/categories',
+  [
+    'uses' => 'CategoryController@list',
+    'as'   => 'category-list'
+  ]
 );
 
 //Endpoint /categories/unId : nous donne les infos de la categories numéro "unId"
 $router->get(
-    '/categories/{id}',
-    [
-        'uses' => 'CategoryController@item',
-        'as'   => 'category-item'
-    ]
+  '/categories/{id}',
+  [
+    'uses' => 'CategoryController@item',
+    'as'   => 'category-item'
+  ]
 );
 
 //Endpoint /tasks : nous donne toute les tasks
 $router->get(
-    '/tasks',
-    [
-        'uses' => 'TaskController@list',
-        'as'   => 'task-list'
-    ]
+  '/tasks',
+  [
+    'uses' => 'TaskController@list',
+    'as'   => 'task-list'
+  ]
+);
+
+//Endpoint /task : ajoute une task
+$router->post(
+  '/tasks',
+  [
+    'uses' => 'TaskController@add',
+    'as'   => 'task-add'
+  ]
 );
