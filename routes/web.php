@@ -37,3 +37,11 @@ $router->get(
     ]
 );
 
+//Endpoint /tasks : nous donne toute les tasks
+$router->get(
+    '/tasks',
+    [
+        'uses' => 'TaskController@list',
+        'as'   => 'task-list'
+    ]
+);
