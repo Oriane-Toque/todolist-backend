@@ -62,4 +62,13 @@ $router->get(
       'uses' => 'TaskController@taskId',
       'as'   => 'task-id'
     ]
-  );
+);
+
+//Endpoint /task : modifie les données d'une task
+$router->put(
+    '/tasks/{id}',
+    [
+      'uses' => 'TaskController@update',
+      'as'   => 'task-update'
+    ]
+);
