@@ -54,3 +54,12 @@ $router->post(
     'as'   => 'task-add'
   ]
 );
+
+//Endpoint /task : nous donne une task selon son id
+$router->get(
+    '/tasks/{id}',
+    [
+      'uses' => 'TaskController@taskId',
+      'as'   => 'task-id'
+    ]
+  );

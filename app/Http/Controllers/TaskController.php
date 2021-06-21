@@ -19,8 +19,6 @@ class TaskController extends Controller
   public function add(Request $request)
   {
 
-    $method = $request->method();
-
     if ($request->isMethod('post')) {
 
       if (!empty($request)) {
@@ -44,6 +42,18 @@ class TaskController extends Controller
 
         return response()->json(['error' => 'Unauthorized'], 500);
       }
+    }
+  }
+
+  public function taskId($taskId)
+  {
+    if (isset($taskId)) {
+
+        $task = Task::find($taskId);
+
+        return response()->json($task, 201);
+    } else {
+        return response()->json(['error' => 'Unhautorized'], 500);
     }
   }
 }
