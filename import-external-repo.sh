@@ -4,7 +4,7 @@
 #
 # Commande pour utiliser ce script BASH :
 #
-#   sh import-external-repo.sh git@github.com:O-clock-Trinity/S07-TodoList.git e02-integration e02-integration
+#   sh import-external-repo.sh git@github.com:O-clock-Trinity/S07-todolist-backend-MikaSlayki.git e04-lumen e04-lumen
 #
 # - l'argument "git@github.com:O-clock-XXXXX/nom-de-depot.git" correspond au lien permettant de cloner le dépôt
 # - l'argument "nom-de-la-branche-a-creer" correspond au nom de la branche dans laquelle les sources seront récupérées (on n'écrase pas les sources actuelles)

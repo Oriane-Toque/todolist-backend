@@ -28,12 +28,51 @@ $router->get(
     ]
 );
 
+
 //Endpoint /categories/unId : nous donne les infos de la categories numéro "unId"
 $router->get(
     '/categories/{id}',
     [
         'uses' => 'CategoryController@item',
         'as'   => 'category-item'
+    ]
+);
+
+//Endpoint /tasks GET
+$router->get(
+    '/tasks',
+    [
+        'uses' => 'TaskController@list',
+        'as'   => 'task-list'
+    ]
+);
+
+//Endpoint /tasks POST
+$router->post(
+    '/tasks',
+    [
+        'uses' => 'TaskController@add',
+        'as'   => 'task-add'
+    ]
+);
+
+//! modification des tâches
+
+// Endpoint /tasks/{id} PUT
+$router->put(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@update',
+        'as'   => 'task-update'
+    ]
+);
+
+// Endpoint /tasks/{id} PATCH
+$router->patch(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@update',
+        'as'   => 'task-patch'
     ]
 );
 
