@@ -21,15 +21,6 @@ class TaskController extends Controller
     public function add(Request $request)
     {
 
-        /* Voici le JSON transmis dans le corps de la requête TEST d'Insomnia
-        {
-            "title": "Mettre en place l'API TodoList",
-            "categoryId": 3,
-            "completion": 0,
-            "status": 1
-        }
-        */
-
         // if ($request->has('title') && $request->has('categoryId')) {
         // on peut directement tester plusieurs valeurs en fournissant un tableau
         // if ($request->has( ['title','categoryId'] )) {
@@ -153,4 +144,31 @@ class TaskController extends Controller
 
     }
 
+    public function delete(Request $request, $id)
+    {
+        $taskToDelete = Task::find($id);
+
+         // Si la tâche existe ? (find retourne null s'il ne trouve pas la tâche)
+        if($taskToDelete !== null){
+
+            // Est-ce que la requête est en DELETE ?
+            if($request->isMethod('delete')){
+                $taskToDelete->delete();
+            }
+
+            if($taskToDelete->save()) {
+                 // alors retourner un code de réponse HTTP 204 "No Content"
+                // https://restfulapi.net/http-methods/#put
+                // sans body (pas de JSON ni d'HTML)
+                return $this->sendEmptyResponse(Response::HTTP_NO_CONTENT);
+            }
+            else {
+                return $this->sendEmptyResponse(Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+
+        } else {
+            // si la tache n'existe pas => not found
+            return $this->sendEmptyResponse(Response::HTTP_NOT_FOUND);
+        }
+    }
 }

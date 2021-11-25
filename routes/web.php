@@ -74,3 +74,12 @@ $router->patch(
         'as'   => 'task-patch'
     ]
 );
+
+// Endpoint /tasks/{id} DELETE
+$router->delete(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@delete',
+        'as'   => 'task-delete'
+    ]
+);
