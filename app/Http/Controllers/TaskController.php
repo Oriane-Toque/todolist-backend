@@ -144,19 +144,16 @@ class TaskController extends Controller
 
     }
 
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         $taskToDelete = Task::find($id);
 
          // Si la tâche existe ? (find retourne null s'il ne trouve pas la tâche)
         if($taskToDelete !== null){
 
-            // Est-ce que la requête est en DELETE ?
-            if($request->isMethod('delete')){
-                $taskToDelete->delete();
-            }
+            $result = $taskToDelete->delete();
 
-            if($taskToDelete->save()) {
+            if($result) {
                  // alors retourner un code de réponse HTTP 204 "No Content"
                 // https://restfulapi.net/http-methods/#put
                 // sans body (pas de JSON ni d'HTML)
