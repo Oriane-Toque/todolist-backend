@@ -146,6 +146,7 @@ class TaskController extends Controller
 
     public function delete($id)
     {
+        // récupération de la tache
         $taskToDelete = Task::find($id);
 
          // Si la tâche existe ? (find retourne null s'il ne trouve pas la tâche)
